@@ -14,7 +14,7 @@ def clean_text(text):
 def normalize_link(href):
     if not href:
         return None
-
+ 
     href = href.strip()
 
     if href.startswith(("javascript:", "#", "mailto:")):
