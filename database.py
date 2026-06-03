@@ -16,11 +16,18 @@ def init_db():
 
         title TEXT,
 
-        link TEXT
+        link TEXT,
+
+        date TEXT
 
     )
 
     """)
+
+    cursor.execute("PRAGMA table_info(news)")
+    columns = [row[1] for row in cursor.fetchall()]
+    if "date" not in columns:
+        cursor.execute("ALTER TABLE news ADD COLUMN date TEXT")
 
     conn.commit()
 
